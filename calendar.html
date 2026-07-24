@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="icon" href="/assets/favicon-192.png" type="image/png" sizes="192x192">
 <title>Meeting Calendar — Blue Ribbon Professional Network</title>
 <meta name="description" content="See upcoming Blue Ribbon Professional Network meetings — in-person, virtual, and leadership sessions — all on one calendar.">
 <meta name="robots" content="index, follow">
@@ -523,6 +528,7 @@ span.footer-tag{ opacity:.75; cursor:default; }
 .cal-event.leadership{ background: var(--navy); }
 .cal-event.inperson{ background: var(--gold); color: var(--navy-deep); }
 .cal-event.virtual{ background: var(--blue); }
+.cal-event.mixer{ background: var(--red-thread); }
 
 .cal-legend{
   display:flex; flex-wrap:wrap; gap: 18px; margin-top: 22px; padding-top: 18px;
@@ -536,6 +542,7 @@ span.footer-tag{ opacity:.75; cursor:default; }
 .cal-legend .swatch.leadership{ background: var(--navy); }
 .cal-legend .swatch.inperson{ background: var(--gold); }
 .cal-legend .swatch.virtual{ background: var(--blue); }
+.cal-legend .swatch.mixer{ background: var(--red-thread); }
 
 .upcoming-list{ margin-top: 30px; display:grid; gap: 12px; }
 .upcoming-item{
@@ -555,6 +562,7 @@ span.footer-tag{ opacity:.75; cursor:default; }
 .upcoming-item .ud-dot.leadership{ background: var(--navy); }
 .upcoming-item .ud-dot.inperson{ background: var(--gold); }
 .upcoming-item .ud-dot.virtual{ background: var(--blue); }
+.upcoming-item .ud-dot.mixer{ background: var(--red-thread); }
 
 .cal-event{ cursor: pointer; }
 .upcoming-item{ cursor: pointer; transition: box-shadow .15s ease, transform .15s ease; }
@@ -582,6 +590,7 @@ span.footer-tag{ opacity:.75; cursor:default; }
 .cal-modal .cal-modal-badge.leadership{ background: var(--navy); }
 .cal-modal .cal-modal-badge.inperson{ background: var(--gold); color: var(--navy-deep); }
 .cal-modal .cal-modal-badge.virtual{ background: var(--blue); }
+.cal-modal .cal-modal-badge.mixer{ background: var(--red-thread); }
 .cal-modal h3{ font-size: 21px; margin-bottom: 6px; }
 .cal-modal .cal-modal-when{ font-family: var(--utility); font-size: 13.5px; color: var(--ink-soft); margin-bottom: 14px; }
 .cal-modal .cal-modal-desc{ font-size: 15.5px; color: var(--ink); margin:0; }
@@ -670,7 +679,8 @@ span.footer-tag{ opacity:.75; cursor:default; }
         <div class="cal-legend">
           <span class="item"><span class="swatch inperson"></span>In-Person Meeting — Douglas Blvd. (2nd Thursday)</span>
           <span class="item"><span class="swatch virtual"></span>Virtual Zoom Meeting (4th Thursday)</span>
-          <span class="item"><span class="swatch leadership"></span>Leadership Virtual Zoom Meeting (2nd &amp; 4th Monday, 9–10 AM)</span>
+          <span class="item"><span class="swatch leadership"></span>Leadership Virtual Zoom Meeting (Monday before each meeting, 9–10 AM)</span>
+          <span class="item"><span class="swatch mixer"></span>Special Event</span>
         </div>
       </div>
 
@@ -725,7 +735,7 @@ span.footer-tag{ opacity:.75; cursor:default; }
           <a class="footer-tag" href="https://www.marihypnosis.com" target="_blank" rel="noopener">CCHt · Clinical Hypnotherapist</a>
           <a class="footer-tag" href="https://www.thebloomingsoul916.com" target="_blank" rel="noopener">Holistic Psychotherapist</a>
           <a class="footer-tag" href="https://www.bigronhandyman.com" target="_blank" rel="noopener">Handyman Services</a>
-          <a class="footer-tag" href="https://silverliningplacement.com" target="_blank" rel="noopener">Senior Care Coordinator</a>
+          <a class="footer-tag" href="https://silverliningplacement.com" target="_blank" rel="noopener">Senior Placement Specialist</a>
       </div>
     </div>
       <p class="f-seo">Blue Ribbon Professional Network connects trusted local professionals through networking in <a href="roseville.html">Roseville</a>, <a href="rocklin.html">Rocklin</a>, <a href="lincoln.html">Lincoln</a>, <a href="loomis.html">Loomis</a>, <a href="granite-bay.html">Granite Bay</a>, and the <a href="sacramento.html">greater Sacramento region</a>.</p>
@@ -753,6 +763,7 @@ span.footer-tag{ opacity:.75; cursor:default; }
 // ---- Meeting Calendar widget ----
 (function(){
   const DOW = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const DOW_FULL = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
   const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
   const TYPE_INFO = {
@@ -773,14 +784,28 @@ span.footer-tag{ opacity:.75; cursor:default; }
       badge: 'Virtual Zoom Meeting',
       time: '',
       desc: 'Email <a href="mailto:blueribbonprofessionalnetwork@gmail.com">blueribbonprofessionalnetwork@gmail.com</a> for the meeting link.'
+    },
+    mixer: {
+      label: 'Professional Network Mixer',
+      badge: 'Special Event',
+      time: '4:30 – 7:00 PM',
+      desc: 'Join us at <a href="https://bennettsrestaurants.com/rocklin-westside-grill-location/" target="_blank" rel="noopener">Bennett\'s Westside Grill</a> in Rocklin for food, drinks, and networking. <a href="https://www.facebook.com/BennettsWestsideGrill" target="_blank" rel="noopener">See the venue on Facebook</a>.'
     }
   };
 
   const MEETINGS = [
-    { weekday: 1, n: 2, type: 'leadership' },
-    { weekday: 1, n: 4, type: 'leadership' },
     { weekday: 4, n: 2, type: 'inperson' },
     { weekday: 4, n: 4, type: 'virtual' },
+  ];
+
+  // One-off special events pinned to a specific calendar date.
+  const SPECIAL_EVENTS = [
+    { year: 2026, month: 9, day: 22, type: 'mixer' }, // October 22, 2026
+  ];
+
+  // Recurring meetings cancelled on a specific date (e.g. replaced by a special event).
+  const CANCELLED_EVENTS = [
+    { year: 2026, month: 9, day: 22, type: 'virtual' }, // October 22, 2026 — replaced by the Mixer
   ];
 
   function nthWeekdayDate(year, monthIndex, weekday, n){
@@ -796,11 +821,24 @@ span.footer-tag{ opacity:.75; cursor:default; }
     return null;
   }
 
+  // Leadership Virtual Zoom Meetings are always the Monday (3 days) before
+  // the In-Person meeting and before the Virtual Zoom BRPN meeting.
   function monthEvents(year, monthIndex){
-    const out = [];
+    let out = [];
     MEETINGS.forEach(m => {
       const day = nthWeekdayDate(year, monthIndex, m.weekday, m.n);
-      if (day) out.push({ day, type: m.type, label: TYPE_INFO[m.type].label });
+      if (day){
+        out.push({ day, type: m.type, label: TYPE_INFO[m.type].label });
+        out.push({ day: day - 3, type: 'leadership', label: TYPE_INFO.leadership.label });
+      }
+    });
+    out = out.filter(ev => !CANCELLED_EVENTS.some(c =>
+      c.year === year && c.month === monthIndex && c.day === ev.day && c.type === ev.type
+    ));
+    SPECIAL_EVENTS.forEach(e => {
+      if (e.year === year && e.month === monthIndex){
+        out.push({ day: e.day, type: e.type, label: TYPE_INFO[e.type].label });
+      }
     });
     out.sort((a,b) => a.day - b.day);
     return out;
@@ -910,7 +948,7 @@ span.footer-tag{ opacity:.75; cursor:default; }
         <div class="ud-date"><span class="num">${item.date.getDate()}</span><span class="mon">${monShort}</span></div>
         <div class="ud-info">
           <span class="name">${item.label}</span>
-          <span class="when">${DOW[item.date.getDay()] === 'Mon' ? 'Monday' : 'Thursday'}, ${MONTHS[item.date.getMonth()]} ${item.date.getDate()}, ${item.date.getFullYear()}</span>
+          <span class="when">${DOW_FULL[item.date.getDay()]}, ${MONTHS[item.date.getMonth()]} ${item.date.getDate()}, ${item.date.getFullYear()}</span>
         </div>
         <span class="ud-dot ${item.type}"></span>
       `;
@@ -934,7 +972,7 @@ span.footer-tag{ opacity:.75; cursor:default; }
     badge.className = 'cal-modal-badge ' + type;
     badge.textContent = info.badge;
     title.textContent = info.label;
-    const dowName = DOW[dateObj.getDay()] === 'Mon' ? 'Monday' : 'Thursday';
+    const dowName = DOW_FULL[dateObj.getDay()];
     const dateStr = `${dowName}, ${MONTHS[dateObj.getMonth()]} ${dateObj.getDate()}, ${dateObj.getFullYear()}`;
     when.textContent = info.time ? `${dateStr} \u2022 ${info.time}` : dateStr;
     desc.innerHTML = info.desc;
