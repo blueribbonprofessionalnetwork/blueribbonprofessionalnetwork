@@ -1,52 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://www.blueribbonprofessionalnetwork.com/index.html</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://www.blueribbonprofessionalnetwork.com/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.blueribbonprofessionalnetwork.com/assets/og-default.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.blueribbonprofessionalnetwork.com/members.html</loc>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.blueribbonprofessionalnetwork.com/calendar.html</loc>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.blueribbonprofessionalnetwork.com/roseville.html</loc>
+    <loc>https://www.blueribbonprofessionalnetwork.com/mark-teran-your-mortgage-man.html</loc>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.blueribbonprofessionalnetwork.com/assets/og-mark-teran.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.blueribbonprofessionalnetwork.com/marisela-bennett-mari-hypnosis.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.blueribbonprofessionalnetwork.com/assets/og-marisela-bennett.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.blueribbonprofessionalnetwork.com/niki-dawson-creative-crafting-academy-taylormade-web-creations.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.blueribbonprofessionalnetwork.com/assets/og-niki-dawson.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.blueribbonprofessionalnetwork.com/roseville.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.blueribbonprofessionalnetwork.com/rocklin.html</loc>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.blueribbonprofessionalnetwork.com/lincoln.html</loc>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.blueribbonprofessionalnetwork.com/loomis.html</loc>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.blueribbonprofessionalnetwork.com/granite-bay.html</loc>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.blueribbonprofessionalnetwork.com/sacramento.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.blueribbonprofessionalnetwork.com/mark-teran-your-mortgage-man.html</loc>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
